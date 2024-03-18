@@ -27,16 +27,16 @@ const Navbar1 = () => {
                 if(data){
                   const temp = JSON.parse(decodeURIComponent(cook[1]));
                   if(temp)
-                  setUser(() => {
-                    return {
-                      _id: temp._id,
-                      email: temp.email,
-                      username: temp.username,
-                      role:temp.role
-                    }
-                  });
+                    setUser(() => {
+                        return {
+                            _id: temp._id,
+                            email: temp.email,
+                            username: temp.username,
+                            role:temp.role
+                        }
+                    });
                 }
-                else throw new Error('Unverified user');
+                else throw 'Unverified user'
               }catch(e){
                 console.log(e);
                 setUser({
