@@ -1,34 +1,26 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const UserSchema = require('./models/User');
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = process.env.PORT || 5050;
+const PORT = 8000;
+
+const userRouter = require("./routes/users");
+const classRouter = require("./routes/class");
 
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
 
-mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+const uri = "mongodb://127.0.0.1:27017/charusat-class";
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const connection = mongoose.connection;
+connection.once("open", () =>
+  console.log("MongoDB Connection Established Successfully!")
+);
 
-app.post('/', (req, res) => {
-  const { username, password } = req.body;
-  
-  // Create a new user in the database
-  UserSchema.create({ username, password })
-    .then(newUser => {
-      console.log('New user created:', newUser);
-      res.status(201).json(newUser); // Send the created user back to the client
-    })
-    .catch(error => {
-      console.error('Error creating user:', error);
-      res.status(500).json({ error: 'An error occurred while creating the user' });
-    });
-});
+app.use("/api/user", userRouter);
+app.use("/api/class", classRouter);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Backend Up and running at Port: ${PORT}`));
