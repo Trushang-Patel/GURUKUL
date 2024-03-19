@@ -145,7 +145,6 @@ exports.signup = async (req, res) => {
         const isUser = await userExists(req.body.email);
         if (isUser) throw 'User already exists.';
         const role = await Role.findOne({ name: req.body.role });
-        if (!role) throw 'Role does not exist.'; // Add this line
         const newUser = new User({
             username: req.body.username,
             password: await encryptPassword(req.body.password),

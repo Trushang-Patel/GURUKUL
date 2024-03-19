@@ -7,7 +7,11 @@ const ClassSchema = mongoose.Schema(
             type: String,
             require: true,
         },
-        subjectCode: { type: String },
+        subjectCode: { 
+            type: String,
+            unique: true, // This ensures that each document has a unique subjectCode
+            sparse: true, // This allows multiple documents without a subjectCode field
+        },
         books: [{ type: String }], //  Recommended books by admin
         link: {
             //  link to the video room

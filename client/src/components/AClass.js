@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Col, Container, Row, Jumbotron, Card,Form, Button } from 'react-bootstrap'
 import Navbar2 from './Navbar2'
-import { useParams } from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 const A_Class = () => {
     const [details, setDetails] = useState({
@@ -18,34 +18,34 @@ const A_Class = () => {
 
     const params = useParams();
 
-    const fetchCls = useCallback(async () => {
-        try {
-            let res = await fetch(`/class/${params.id}`, {
-            });
-            res = await res.json();
-            if (res.error) {
-                setError(res.error);
+        const fetchCls = async () => {
+            try {
+                let res = await fetch(`/class/${params.id}`, {
+                });
+                res = await res.json();
+                if (res.error) {
+                    setError(res.error);
+                }
+                else return res;
+            } catch (e) {
+                console.log(e);
             }
-            else return res;
-        } catch (e) {
-            console.log(e);
         }
-    }, [params.id]);
-
-    const fetchPosts = useCallback(async () => {
-        try {
-            let res = await fetch(`/class/${params.id}/posts`);
-            res = await res.json();
-            if (res.error) {
-                setError(res.error);
+        const fetchPosts = async () => {
+            try {
+                let res = await fetch(`/class/${params.id}/posts`);
+                res = await res.json();
+                if (res.error) {
+                    setError(res.error);
+                }
+                else return res;
+            } catch (e) {
+                console.log(e);
             }
-            else return res;
-        } catch (e) {
-            console.log(e);
-        }
-    }, [params.id]);
-
+    };
+    
     useEffect(() => {
+
         fetchPosts().then(res => {
             if(res && res.posts)
                 setPosts(res.posts)
@@ -62,7 +62,7 @@ const A_Class = () => {
                 }
             });
         })
-    }, [fetchCls, fetchPosts])
+    }, [])
 
     const submitPost = async () => {
         try {
@@ -97,7 +97,7 @@ const A_Class = () => {
                                 <h1>{details.classname}</h1>
                                 <p>Join Code : {details.id}</p>
                                 <p>Subject Code : {details.ClassCode}</p>
-                                <p>Meet Link : <a href={`https://${details.link}`} target="_blank" rel="noreferrer" style={{color:"white", textDecoration:"none"}}>https://{details.link}</a> </p>
+                                <p>Meet Link : <a href={`https://${details.link}`} target="_blank" style={{color:"white", textDecoration:"none"}}>https://{details.link}</a> </p>
                             </Jumbotron>
                         </div>
                         <div className="d-md-flex align-items-center justify-content-center">

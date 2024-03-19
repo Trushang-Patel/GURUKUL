@@ -9,23 +9,24 @@ const Members = () => {
     const [admin, setAdmin] = useState('');
     const [students, setStudents] = useState([]);
 
-    useEffect(() => {
-        const fetchClass = async () => {
-            try {
-                let res = await fetch(`/class/${params.id}`);
-                res = await res.json();
-                if (!res.error) return res;
-                throw res.error;
-            } catch (e) {
-                console.log(e);
-            }
+    const fetchClass = async () => {
+        try {
+            let res = await fetch(`/class/${params.id}`);
+            res = await res.json();
+            if (!res.error) return res;
+            throw res.error;
+        } catch (e) {
+            console.log(e);
         }
+    }
 
+    useEffect(() => {
         fetchClass().then(res => {
             setAdmin(res.class.admin.name);
             setStudents(res.class.students);
         })
-    }, [params.id])
+    }, [])
+
     return (
         <>
             <Navbar2  id={params.id}/>

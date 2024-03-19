@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import {
     Col,
@@ -6,9 +6,13 @@ import {
     Row,
     Form,
     Button,
+    Media,
+    Image,
+    Spinner,
 } from 'react-bootstrap';
 import { MdAccountBox, MdEmail, MdLock } from 'react-icons/md';
 import { FaChalkboardTeacher } from 'react-icons/fa';
+import { UserContext } from '../context/userContext';
 
 import Navbar from './Navbar';
 
@@ -19,8 +23,10 @@ const SignUp = () => {
     const [c_password, setC_Password] = useState('');
     const [role, setRole] = useState('Student');
 
+    const [loader, setLoader] = useState(false);
     const [err, setErr] = useState('');
 
+    const [user, setUser] = useContext(UserContext);
     const hist = useHistory();
 
     const onChangeHandler = (e) => {
@@ -41,8 +47,6 @@ const SignUp = () => {
                 console.log(e.target.value);
                 setRole(e.target.value);
                 break;
-            default:
-                break;
         }
     };
 
@@ -58,6 +62,11 @@ const SignUp = () => {
             //if password matched
             fetchClassPosts().then((res) => {
                 if (!res.error) {
+                    setUser({
+                        username: res.user.username,
+                        email: res.user.email,
+                        role: res.user.role,
+                    });
                     hist.push('/');
                 } else {
                     console.log(res);

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
-import { ListGroup } from 'react-bootstrap'
-import { MdAssignment } from "react-icons/md";
+import Navbar2 from './Navbar2'
+import { Container, Row, Col, ListGroup, Button } from 'react-bootstrap'
+import { MdAssignment, MdAssignmentInd,MdCreateNewFolder } from "react-icons/md";
 
 const SubmitAssignment = () => {
     const [answer, setAnswer] = useState([]);
@@ -23,6 +24,7 @@ const SubmitAssignment = () => {
     const hist = useHistory();
 
     const onChange = (index, event) => {
+        // event.preventDefault();
         event.persist();
         console.log(answer)
         setAnswer(
@@ -50,7 +52,7 @@ const SubmitAssignment = () => {
                     }
                 });
             }
-        });
+        })
         
         const fetchAssigns = async () => {
             try{
@@ -85,7 +87,7 @@ const SubmitAssignment = () => {
             }
         });
 
-    }, [params.id])
+    }, [])
 
     const submitHandler = async () => {
         console.log(answer)
@@ -113,6 +115,7 @@ const SubmitAssignment = () => {
         }
         catch(err){
             console.log(err)
+            // setErr(err)
         }
     }
 

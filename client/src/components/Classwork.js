@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import { Container, Row, Col, ListGroup } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react'
+import { Container, Row, Col, ListGroup, Button } from 'react-bootstrap'
 import Navbar2 from './Navbar2'
 import { MdAssignment, MdAssignmentInd,MdCreateNewFolder } from "react-icons/md";
 import { useParams } from 'react-router'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Classwork = () => {
     const [assigns, setAssigns] = useState([]);
@@ -15,7 +15,9 @@ const Classwork = () => {
         role:''
     });
 
-    const fetchAssigns = useCallback(async () => {
+
+
+    const fetchAssigns = async () => {
         try {
             let res = await fetch(`/class/${params.id}/assign`);
             res = await res.json();
@@ -25,7 +27,7 @@ const Classwork = () => {
         catch (e) {
             console.log(e);
         }
-    }, [params.id]);
+    }
 
     const renderEmpty = () => {
         return (
@@ -57,7 +59,7 @@ const Classwork = () => {
             setAssigns(res.assigns);
         });
 
-    }, [fetchAssigns])
+    }, [])
 
     useEffect(()=>{
 

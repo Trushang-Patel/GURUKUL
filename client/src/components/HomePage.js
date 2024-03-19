@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { UserContext } from '../context/userContext'
 import { Col, Container, Row } from 'react-bootstrap'
 import Navbar1 from './Navbar'
-import ClassCard from './ClassCard'
-import { useHistory } from 'react-router-dom'
+import Class_Card from './ClassCard'
+import {Link, Redirect, useHistory} from 'react-router-dom'
+import { MdCollectionsBookmark } from 'react-icons/md'
 
 const HomePage = () => {
     const [classes, setClasses] = useState([]);
@@ -14,8 +16,7 @@ const HomePage = () => {
     });
     const hist = useHistory();
 
-   
-    const fetchClasses = useCallback(async () => {
+    const fetchClasses = async () => {
         try{
             const res = await fetch('/class', {
                 method:"GET",
@@ -30,8 +31,7 @@ const HomePage = () => {
             hist.push('/signup');
             console.log(err);
         }
-    }, [hist]); 
-
+    }
 
     const unenroll = async (id) => {
         try {
@@ -72,7 +72,7 @@ const HomePage = () => {
             if(res && res.classes)
                 setClasses(res.classes);
         });
-    }, [fetchClasses]);
+    }, []);
 
     const renderEmpty = () => {
         return (
@@ -89,9 +89,9 @@ const HomePage = () => {
              <Row>
                  <Col className="mt-3">
                  <div className="d-flex justify-content-center align-items-center flex-wrap">
-                    {classes && classes.length === 0 ? renderEmpty() : null}
+                    {classes && classes.length == 0 ? renderEmpty() : null}
                     {classes && classes.map((val,index) => 
-                        <ClassCard
+                        <Class_Card
                             key={index}
                             user={user}
                             id = {val._id}

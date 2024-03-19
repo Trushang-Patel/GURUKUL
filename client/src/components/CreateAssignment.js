@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Navbar2 from './Navbar2';
 import { ImCross } from "react-icons/im";
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -63,7 +64,6 @@ const CreateAssignment = () => {
         return res;
     };
 
-    
     const prevIsValid = () => {
         if (form.length === 0) {
         return true;
@@ -74,7 +74,7 @@ const CreateAssignment = () => {
         );
 
         if (someEmpty) {
-        form.forEach((item, index) => {
+        form.map((item, index) => {
             const allPrev = [...form];
 
             if (form[index].Points === "") {

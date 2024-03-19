@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 // ---------Components----------------
-import AClass from './components/AClass';
+import A_Class from './components/AClass';
 import Classwork from './components/Classwork';
 import Members from './components/Members';
 import HomePage from './components/HomePage';
@@ -28,7 +28,7 @@ function App() {
             <Signin />
           </Route>
           <Route exact path="/class/:id/stream">
-            <AClass /> {/* Renamed here */}
+            <A_Class />
           </Route>
           <Route exact path="/class/:id/classwork">
             <Classwork />

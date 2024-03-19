@@ -6,11 +6,15 @@ import {
     Row,
     Form,
     Button,
+    Media,
+    Image,
+    Spinner,
 } from 'react-bootstrap';
-import { MdEmail, MdLock } from 'react-icons/md';
+import { MdAccountBox, MdEmail, MdLock } from 'react-icons/md';
 
 import { UserContext } from '../context/userContext';
 
+import { FaChalkboardTeacher } from 'react-icons/fa';
 import Navbar1 from './Navbar';
 
 const Signin = () => {
@@ -18,15 +22,19 @@ const Signin = () => {
     const [password, setPassword] = useState('');
     const [err, setErr] = useState('');
 
-    const [, setUser] = useContext(UserContext);
+    const [loader, setLoader] = useState(false);
+
+    const [user, setUser] = useContext(UserContext);
     const hist = useHistory();
 
     const onChangeHandler = (e) => {
-        const { name, value } = e.target;
-        if (name === 'email') {
-            setEmail(value);
-        } else if (name === 'password') {
-            setPassword(value);
+        switch (e.target.name) {
+            case 'email':
+                setEmail(e.target.value);
+                break;
+            case 'password':
+                setPassword(e.target.value);
+                break;
         }
     };
 
