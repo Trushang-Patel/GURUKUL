@@ -19,7 +19,8 @@
         "express": "^4.17.1",
         "googleapis": "^84.0.0",
         "jsonwebtoken": "^8.5.1",
-        "mongoose": "^6.0.2"
+        "mongoose": "^6.0.2",
+        "plagiarism-checker": "^4.0.0"
     },
     "devDependencies": {
         "prettier": "^2.3.2"

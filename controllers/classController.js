@@ -40,12 +40,14 @@ exports.addClass = async (req, res) => {
     const user = req.user;
     //creating the meet link
     function makeid() {
-        var secret_text="";
-        var possible_text = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var secret_text = '';
+        var possible_text =
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-        for(var i=0;i<10;i++)
-        {
-            secret_text+=possible_text.charAt(Math.floor(Math.random()*possible_text.length));
+        for (var i = 0; i < 10; i++) {
+            secret_text += possible_text.charAt(
+                Math.floor(Math.random() * possible_text.length)
+            );
         }
 
         return secret_text;
