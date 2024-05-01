@@ -12,7 +12,6 @@ exports.setCookies = (res, user, role) => {
         res.cookie('access', token, {
             httpOnly: true,
             maxAge: this.accessExpiry * 1000,
-            // secure: true,
         });
         res.cookie(
             'user',
@@ -25,13 +24,11 @@ exports.setCookies = (res, user, role) => {
             {
                 httpOnly: false,
                 maxAge: this.accessExpiry * 1000,
-                // secure: true,
             }
         );
         res.cookie('refresh', refreshToken, {
             httpOnly: true,
             maxAge: this.refreshExpiry * 1000,
-            // secure: true,
         });
 
         return null;

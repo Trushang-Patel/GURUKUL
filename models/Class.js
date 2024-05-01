@@ -7,7 +7,7 @@ const ClassSchema = mongoose.Schema(
             type: String,
             require: true,
         },
-        subjectCode: { 
+        subjectCode: {
             type: String,
             unique: true, // This ensures that each document has a unique subjectCode
             sparse: true, // This allows multiple documents without a subjectCode field

@@ -25,12 +25,12 @@ exports.isUser = async (req, res, next) => {
         res.cookie('access', access, {
             httpOnly: true,
             maxAge: JWT.accessExpiry * 1000,
-            // secure: true,
+
         });
         res.cookie('user', JSON.stringify(user), {
             httpOnly: false,
             maxAge: JWT.accessExpiry * 1000,
-            // secure: true,
+
         });
     }
 
@@ -55,12 +55,12 @@ exports.isTeacher = async (req, res, next) => {
         res.cookie('access', access, {
             httpOnly: true,
             maxAge: JWT.accessExpiry * 1000,
-            // secure: true,
+
         });
         res.cookie('user', JSON.stringify(user), {
             httpOnly: false,
             maxAge: JWT.accessExpiry * 1000,
-            // secure: true,
+
         });
     }
     req.user = user;
@@ -89,12 +89,12 @@ exports.isStudent = async (req, res, next) => {
         res.cookie('access', access, {
             httpOnly: true,
             maxAge: JWT.accessExpiry * 1000,
-            // secure: true,
+
         });
         res.cookie('user', JSON.stringify(user), {
             httpOnly: false,
             maxAge: JWT.accessExpiry * 1000,
-            // secure: true,
+
         });
     }
     req.user = user;
@@ -193,18 +193,15 @@ exports.signin = async (req, res) => {
 exports.logout = (req, res) => {
     res.cookie('access', '', {
         httpOnly: true,
-        // maxAge: JWT.accessExpiry * 1000,
-        // secure: true,
+
     });
     res.cookie('refresh', '', {
         httpOnly: true,
-        // maxAge: JWT.refreshExpiry * 1000,
-        // secure: true,
+
     });
     res.cookie('user', '', {
         httpOnly: false,
-        // maxAge: JWT.accessExpiry * 1000,
-        // secure: true,
+
     });
     res.json({ success: 'Logged out successfully.' });
 };
