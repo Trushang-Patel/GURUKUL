@@ -2,10 +2,11 @@
 
 # GURUKUL
 
-GURUKUL is a comprehensive e-learning platform designed to facilitate seamless interaction between educators and learners. It offers features such as assignment uploads, note sharing, attendance tracking, and a forum for student discussions.
+GURUKUL is a comprehensive e-learning platform designed to facilitate seamless interaction between educators and learners. It offers features such as Quiz hosting, assignment uploads, note sharing, attendance tracking, and a forum for student discussions.
 
 ## Features
 
+- **Quiz Hosting**: Teachers can host quiz and schedule test for students.
 - **Assignment Management**: Upload and download assignments with ease.
 - **Resource Sharing**: Access and share notes and important documents.
 - **Attendance Tracking**: Mark attendance using location-based verification or PIN codes for online sessions.
