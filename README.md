@@ -76,4 +76,8 @@ We would like to thank all contributors and the open-source community for their 
 
 ---
 
-Feel free to replace the placeholders with actual information specific to your project. If you need assistance customizing any section or adding more details, let me know! 
+Feel free to replace the placeholders with actual information specific to your project. If you need assistance customizing any section or adding more details, let us know!
+22it116@charusat.edu.in
+22it120@charusat.edu.in
+
+
