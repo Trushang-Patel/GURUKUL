@@ -84,8 +84,7 @@ We would like to thank all contributors and the open-source community for their 
 ## Contact
 
 For questions, suggestions, or support, contact us at:
-
-- 📧 [22it116@charusat.edu.in](mailto:22it116@charusat.edu.in)  
-- 📧 [22it120@charusat.edu.in](mailto:22it120@charusat.edu.in)  
+- [22it116@charusat.edu.in](mailto:22it116@charusat.edu.in) 
+- [22it120@charusat.edu.in](mailto:22it120@charusat.edu.in)  
 
 ---
