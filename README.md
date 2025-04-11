@@ -9,7 +9,7 @@ GURUKUL is a comprehensive E-learning platform designed to facilitate seamless i
 - **Quiz Hosting**: Teachers can host quiz and schedule test for students.
 - **Assignment Management**: Upload and download assignments with ease.
 - **Resource Sharing**: Access and share notes and important documents.
-- **Attendance Tracking**: Mark attendance using location-based verification or PIN codes for online sessions.
+- **Attendance Tracking**: Mark attendance using location-based verification.
 
 ## Technologies Used
 
@@ -23,7 +23,7 @@ GURUKUL is a comprehensive E-learning platform designed to facilitate seamless i
 
 - Node.js and npm installed
 - MongoDB setup
-- Android Studio (for mobile app development)
+- Android Studio (under development)
 
 ### Installation
 
