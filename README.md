@@ -30,19 +30,19 @@ GURUKUL is a comprehensive E-learning platform designed to facilitate seamless i
 1. Clone the repository:
    ```bash
    git clone https://github.com/Trushang-Patel/GURUKUL.git
-   cd GURUKUL
+   cd GURUKUL
    ```
 
 2. Install backend dependencies:
    ```bash
    cd backend
-   npm install
+   npm install
    ```
 
 3. Install frontend dependencies:
    ```bash
    cd ../frontend
-   npm install
+   npm install
    ```
 
 4. Set up environment variables:
